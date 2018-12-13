@@ -1,0 +1,112 @@
+.clear:after{
+	content: "";
+	display: block;
+	clear: both;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+/*main*/
+.maincon{
+	margin: 20px auto;
+	position: relative;
+	width: 1000px;
+}
+/*mainconLeft*/
+.mainconLeft{
+	float: left;
+	margin-left: 132px;
+}
+.mainconLeft .regInfo{
+	width: 398px;
+	height: 52px;
+	border: solid 1px #ddd;
+	/*margin-bottom: 32px;*/
+}
+.mainconLeft .regCheckBox{
+	width: 398px;
+	height:32px;
+	font-size: 12px;
+	color: #c5c5c5;
+	line-height: 32px;
+	text-indent: 10px;
+	/*display: none;*/
+}
+.mainconLeft .regInfo label{
+	width: 110px;
+	height: 52px;
+	line-height: 52px;
+	float: left;
+	text-align: center;
+}
+.mainconLeft .regInfo input{
+	width: 210px;
+	height: 52px;
+	line-height: 52px;
+	float: left;
+	font-size: 14px;
+	border: none;
+	outline: none;
+	background: #ffffff;
+}
+.mainconLeft .rImg input{
+	width: 170px;
+	margin-right: 4px;
+}
+.mainconLeft .rImg img{
+	width: 110px;
+	height: 46px;
+	margin-top: 3px;
+	background: gray;
+	cursor: pointer;
+}
+.mainconLeft .rImgTwo input:last-child{
+	width: 110px;
+	height: 46px;
+	line-height: 46px;
+	margin-top: 3px;
+	cursor: pointer;
+}
+.mainconLeft .agreement{
+	width: 400px;
+	height: 20px;
+	line-height: 20px;
+	border: none;
+	font-size: 12px;
+	margin-bottom: 32px;
+}
+.mainconLeft .agreement a{
+	color: #38f;
+}
+.mainconLeft .agreement input{
+	width: 18px;
+	height: 18px;
+	margin-top: 1px;
+	margin-right: 10px;
+}
+.mainconLeft .rbtn{
+	border: none;
+}
+.mainconLeft .rbtn input{
+	width: 400px;
+	height: 54px;
+	background: #454b52;
+	font-size: 16px;
+	color: #fff;
+	cursor: pointer;
+}
+.mainconLeft .rbtn input:hover{
+	background: #DF0000;
+}
+/*mainconRight*/
+.mainconRight{
+	float: left;
+	border-left: solid 1px #e6e6e6;
+	margin-left: 60px;
+	padding-left: 60px;
+}
+.mainconRight img{
+	width: 275px;
+	height: 464px;
+}

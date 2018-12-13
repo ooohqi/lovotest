@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录-LOVO 乐我生活网</title>
+		<link rel="stylesheet"  type="text/css" href="css/login.css" />
+		<link rel="stylesheet"  type="text/css" href="css/common.css" />
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<!--header-->
+		<div class="header" id="header">
+			
+			<!--hMiddle-->
+			<div class="hMiddle clear">
+				<div class="logo">
+					<a href="index.html"><img src="./img/LOGOcunjie.gif" alt="" /></a>
+				</div>
+			</div>
+			
+		</div>
+		<!--mian-->
+		<div class="mian">
+			<div class="maincon">
+				<a href="#"><div class="loginImg"></div></a>
+				<div class="login">
+					<div class="loginTop">
+						<div class="loginWay clear">
+							<div class="loginWayLeft">
+								<a href="#">账户登录</a>
+							</div>
+							<div class="loginWayRight">
+								<a href="#">短信快捷登录</a>
+							</div>
+						</div>
+						<div class="loginHint" id="spanError"></div>
+						<div class="loginInfo">
+							<form action="">
+								<div class="user username clear">
+									<label for=""></label>
+									<input type="text" id="username" placeholder="用户名/已验证手机"/>
+									<span id="clearBtn"></span>
+								</div>
+								<div class="user userpass clear">
+									<label for=""></label>
+									<input type="text" id="userpass" placeholder="密码"/>
+									<span id="clearBtn"></span>
+								</div>
+								<div class="securitycode clear">
+									<input type="text" placeholder="图形验证码"/>
+									<img src="getCode.php" onclick="this.src='getCode.php?'+new Date().getTime();" alt="" />
+									<a href="#">看不清换一张</a>
+								</div>
+								<div class="forgetpass"><a href="#">忘记密码</a></div>
+								<div class="loginbtn"><input class="loginbtnchild" id="loginbtn" type="button" value="登录"/></div>
+							</form>
+						</div>
+					</div>
+					<div class="loginBottom">
+						<ul>
+							<li>
+								<a href="#">
+									<p><span class="loginBottomImg"></span>QQ</p>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<p><span class="loginBottomImg imgTwo"></span>微博</p>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<p><span class="loginBottomImg imgThree"></span>支付宝</p>
+								</a>
+							</li>
+							<li class="loginBottomLastLi">
+								<a href="register.html" target="_blank">
+									<p><span class="loginBottomImg imgFour"></span>立即注册</p>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--footer-->
+		<div class="footer">
+			<div class="fTop clear">
+				<div class="ftt clear">
+					<div class="fttl">
+						<img src="img/bottom_logo.png"/>
+					</div>
+					<div class="fttr clear">
+						<div class="fttrChild">
+							<span></span>
+							<span>69</span>
+							<span>元即可<br/>免费配送</span>
+						</div>
+						<div class="fttrChild">
+							<span class="sTwo"></span>
+							<span>1200</span>
+							<span>个城市<br/>送货上门</span>
+						</div>
+						<div class="fttrChild">
+							<span class="sThree"></span>
+							<span>7</span>
+							<span>天无理由<br/>退换货保障</span>
+						</div>
+						<div class="fttrChild">
+							<span class="sFour"></span>
+							<span></span>
+							<span>客服热线<br/>021-60554933</span>
+						</div>
+					</div>
+				</div>
+				<div class="ftb clear">
+					<ul class="ftbList">
+						<li>新手指南</li>
+						<li><a href="">注册新用户</a></li>
+						<li><a href="">会员规则</a></li>
+						<li><a href="">乐币规则</a></li>
+						<li><a href="">礼品卡使用流程</a></li>
+					</ul>
+					<ul class="ftbList">
+						<li>如何付款/退款</li>
+						<li><a href="">网站订购流程</a></li>
+						<li><a href="">支付方式</a></li>
+						<li><a href="">如何办理退款</a></li>
+						<li><a href="">发票制度说明</a></li>
+					</ul>
+					<ul class="ftbList">
+						<li>配送方式</li>
+						<li><a href="">货到付款城市及配送时间</a></li>
+						<li><a href="">款到快递城市及配送时间</a></li>
+						<li><a href="">配送费收取标准及签收事项</a></li>
+					</ul>
+					<ul class="ftbList">
+						<li>售后服务</li>
+						<li><a href="">退换货政策</a></li>
+						<li><a href="">如何办理退换货</a></li>
+						<li><a href="">常见热点问题</a></li>
+						<li><a href="">投诉与建议</a></li>
+					</ul>
+					<ul class="ftbList">
+						<li>关于LOVO</li>
+						<li><a href="">联系我们</a></li>
+						<li><a href="">友情链接</a></li>
+						<li><a href="">罗莱家纺股份&招商中心</a></li>
+						<li><a href="">LOVO家居官方微博</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="fMiddle clear">
+				<div class="fmCld">
+					<div class="cldLeft">
+						<a href="#">关于LOVO</a>
+						<a href="#">隐私条款</a>
+						<a href="#">网站联盟</a>
+					</div>
+					<div class="cldRight">
+						Copyright&copy;2009-2016 lovo.cn All Rights Reserved 沪ICP备05017226号-17 版权所有&copy;上海罗莱家用纺织品有限公司
+					</div>
+				</div>
+			</div>
+			<div class="fBottom clear">
+				<div class="fbLeft">
+					<a href="#"></a>
+					<a href="#">
+						<img src="img/gaba.png"/>沪公网安备<br/>31011202001053号
+					</a>
+				</div>
+				<div class="fbRight">                       
+					<a href="#">重庆婚庆公司</a>
+					<a href="#">百姓网</a>
+					<a href="#">爱上海论坛 </a>
+					<a href="#">唐朝网</a>
+					<a href="#">黄山大众网</a>
+					<a href="#">美乐乐上海站</a>
+					<a href="#">沈阳生活网</a>
+					<a href="#">家纺品牌 </a>
+					<a href="#">婚宴酒店</a>
+					<a href="#">别墅网 </a>
+					<a href="#">客家网 </a>
+					<a href="#">板式家具</a>
+					<a href="#">品牌加盟 </a>
+					<a href="#">安家啦家居 </a>
+					<a href="#">结婚网 </a>
+					<a href="#">北京团购</a>
+					<a href="#">厦门装修公司</a>
+					<a href="#">女性时尚 </a>
+					<a href="#">家具卖场 </a>
+					<a href="#">南宁装修家居</a>
+					<a href="#">中国墙纸网 </a>
+					<a href="#">南京影楼</a>
+					<a href="#">PPS影音</a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="js/ajax1808.js" ></script>
+<script type="text/javascript">
+	window.onload = function(){
+		$("#loginbtn").onclick = function(){
+			ajax03({
+				"url":"logincheck.php",
+				"method":"post",
+				"param":"username="+$("#username").value+"&userpass="+$("#userpass").value,
+				"func":loginCheck
+			});
+		}
+	}
+	
+	function loginCheck(data){
+		if(data=="0"){
+			$("#spanError").style.cssText="background:#ffebeb;border:1px solid #faccc6;color:#e4393c;font-size: 12px;line-height: 21px;"
+			$("#spanError").innerHTML = spanshow(0)+ "用户名或密码错误,请重新输入";
+		}else if(data=="1"){
+//			$("#spanError").style.cssText="line-height: 21px;border: 1px solid transparent;background: none;"
+//			$("#spanError").innerHTML = "";
+			alert("登录成功");
+			location.href = "index.html";
+		}
+	}
+	
+	function spanshow(n){
+		if(n==0){
+			var s='<span style="display:inline-block;float: left;width:16px;height:16px;background:url(img/regicon.png) no-repeat;margin:2px 5px 0px;background-position: -17px -100px;"></span>';
+		}else{
+			var s='<span style="display:inline-block;float: left;width:16px;height:16px;background:url(img/regicon.png) no-repeat;margin-top:2px 5px 0px;background-position: 0 -117px;"></span>';
+		}
+		return s;
+	}
+	function $(str){//#box .cls  p
+		if(str.charAt(0)=="#"){
+			return document.getElementById(str.substring(1));
+		}else if(str.charAt(0)=="."){
+			return document.getElementsByClassName(str.substring(1));
+		}else{
+			return document.getElementsByTagName(str);
+		}
+	}
+</script>

@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>商品详情-LOVO 乐我生活网</title>
+		<style type="text/css">
+			/*main*/
+			.main{
+				/*background: silver;*/
+				/*height: 7750px;*/
+			}
+			.goodsCont{
+				margin:0 auto;
+				padding-top:10px;
+				padding-bottom:10px;
+				width:1000px;
+				/*background: salmon;*/
+			}
+			.goodsDetailNav{
+				font-size: 12px;
+				color: #7d7d7d;
+				border-bottom: 2px #454b52 solid;
+				line-height: 25px;
+			}
+			.goodsDetailNav a{
+				color: #000;
+			}
+			.goodsMoreDetail{
+				padding: 25px 0;
+			}
+			.goodsMoreDetailLeft{
+				float: left;
+			}
+			.goodsImgList{
+				float: left;
+				margin-right: 20px;
+			}
+			.Slide{
+				width: 20px;
+				height:14px;
+				margin-left: 25px;
+			}
+			.back{
+				background: url(img/ad_scroll_back.png) no-repeat;
+			}
+			.forward{
+				background: url(img/ad_scroll_forward.png) no-repeat;
+			}
+			.scrollImg{
+				width: 70px;
+				height: 390px;
+				overflow: hidden;
+			}
+			.scrollImg li{
+				padding-top: 5px;
+			    width: 70px;
+			    height: 70px;
+			}
+			.scrollImg img{
+			    border: 3px solid #CCC;
+			    display: block;
+			    width: 65px;
+			    height: 65px;
+			    /*opacity: .7;*/
+			}
+			.goodsImgBox{
+				position: relative;
+			    float: left;
+				width: 400px;
+				height: 400px;
+				z-index: 99;
+				
+			}
+			.goodsImgBox img{
+				width: 400px;
+				height: 400px;
+			}
+			.goodsMirrorBox{
+				cursor: move;
+				position: absolute;
+				left:0;
+				top:0;
+				width:200px;
+				height: 200px;
+				background-color:white;
+				opacity: .5;
+				border: 1px solid #CCC;
+			}
+			.goodsShowBox{
+				position:absolute;
+				left:420px;
+				top:0px;
+				background-image:url(img/tj1.jpg);
+				display: none;
+				z-index: 99px;
+				border: 1px solid #CCC;
+			}
+			.goodsMoreDetailRight{
+				float: left;
+				margin-left: 30px;
+				color: #7d7d7d;
+				font-size: 12px;
+			}
+			.goodsMoreDetailRight h3{
+				font-size: 14px;
+				color: #686868;
+				line-height: 24px;
+			}
+			.goodsMoreDetailRight .newGoodsImg{
+			    width: 47px;
+			    height: 14px;
+			    display: inline-block;
+			    background: url(img/icon.png) no-repeat;
+			    background-position: -47px 1px;
+			    vertical-align: middle;
+			}
+			.goodsMoreDetailRight p{
+				line-height: 24px;
+				
+			}
+			.goodsMoreDetailRight p .star{
+				display: inline-block;
+				width: 60px;
+				height: 10px;
+				background: url(img/star-matrix.gif) no-repeat;
+				background-position: 0 -100px;
+			}
+			.goodsMoreDetailRight .pcolor{
+				color: #df0000;
+			}
+			.goodsMoreDetailRight .pcolor b{
+				font-size: 14px;
+			}
+			.goodsMoreDetailRight .purplish{
+				color: #4c4c4c;
+				font-weight: bold;
+			}
+			.goodsMoreDetailRight .gray{
+				color: #8c8c8c;
+			}
+			.goodsMoreDetailRight .activeImg{
+				height: 60px;
+				line-height: 60px;
+				display: inline-block;
+			}
+			.goodsMoreDetailRight .activeImg a{
+				float: left;
+				width: 48px;
+				height: 48px;
+				border: solid 2px #df0000;
+			}
+			.goodsMoreDetailRight .activeImg img{
+				width: 48px;
+				height: 48px;
+			}
+			.goodsMoreDetailRight .chooseSize{
+				border-top: dashed 1px #ddd;
+			    border-bottom: dashed 1px #ddd;
+			    padding: 8px 0;				
+			}
+			.goodsMoreDetailRight .chooseSize .size{
+			    display: inline-block;
+			    border: solid 1px #ddd;
+			    color: #999;
+			    cursor: pointer;
+			    margin-right: 5px;
+			    padding: 3px 5px;
+			}
+			.goodsMoreDetailRight .chooseSize .size:first-child{
+				border-color: #df0000;
+    			color: #df0000;
+			}
+			.goodsMoreDetailRight .numoper{
+				margin: 10px 10px 10px 0;
+			}
+			.goodsMoreDetailRight .numoper .numSpan{
+				display: inline-block;
+				width: 11px;
+				height: 11px;
+			}
+			.goodsMoreDetailRight .numoper .nums{
+				border: 1px solid #C9C9C9;
+			    text-align: center;
+			    width: 20px;
+			}
+			.goodsMoreDetailRight .numoper .operate{
+				display: inline-block;
+				margin-left: 15px;
+				height: 28px;
+				line-height: 28px;
+			    font-size: 12px;
+			   	padding: 0 15px;
+			}
+			.goodsMoreDetailRight .numoper .buyBtn{
+				color: #fff;
+				background: #df0000;
+				border: 1px solid #DF0000;
+			}
+			.goodsMoreDetailRight .numoper .buyBtn:hover{
+				background: #000;
+				border: 1px solid #000;
+			}
+			.goodsMoreDetailRight .numoper .collectBtn{
+				color: #000;
+				background: #fff;
+				border: 1px solid #000;
+			}
+			.goodsMoreDetailRight .numoper .collectBtn:hover{
+				color: #df0000;
+				border: 1px solid #df0000;
+			}
+		</style>
+		<link rel="stylesheet"  type="text/css" href="css/common.css" />
+	</head>
+	<body>
+		<!--右侧栏-->
+		<div class="rightSidebar">
+			<div class="rsTop">
+				<div class="rstList">
+					<div class="rstListImg">
+						<img src="img/icon2.png" alt="" />
+					</div>
+					<div class="rstListLogin">
+						<ul class="rstListLoginChild">
+							<li>用户名：<br/><input type="text" placeholder="用户名/已认证手机号"/></li>
+							<li>密码 ：<br/><input type="psaaword" /></li>
+							<li><input type="checkbox" />保存用户名</li>
+							<li>
+								<input class="ckSave" type="button" value="登录" />
+								<a href="#">忘记密码</a>
+								<a href="#">去注册</a>
+							</li>
+						</ul>
+						<div class="wzq">
+							<span>联合登录</span>
+							<a href="#" class="fcImg"><img src="img/weibo.jpg" alt="" /></a>
+							<a href="#"><img src="img/zhifubao.jpg" alt="" /></a>
+							<a href="#"><img src="img/QQ.jpg" alt="" /></a>
+						</div>
+						<div class="sanjiao"></div>
+					</div>
+				</div>
+				<div class="rstSCar">
+					<div class="line"></div>
+					<div class="rstList">
+						<img src="img/icon3.png" alt="" />
+						<p>购<br>物<br>车</p>
+						<span>1</span>
+					</div>
+					<div class="line"></div>
+				</div>
+				<div class="rstList">
+					<div class="rstListImg">
+						<img src="img/icon4.png" alt="" />
+					</div>
+				</div>
+				<div class="rstList">
+					<div class="rstListImg">
+						<img src="img/icon5.png" alt="" />
+					</div>
+					<div class="rstListText rslsz">
+						<img src="img/gaoshi.jpg"/>
+						<div class="sanjiao szsj"></div>
+					</div>
+				</div>
+				<div class="rstList">
+					<div class="rstListImg">
+						<img src="img/icon6.png" alt="" />
+					</div>
+					<div class="rstListText">
+						<img src="img/rengong.png"/>
+						<div class="sanjiao"></div>
+					</div>
+				</div>
+				<div class="rstList">
+					<div class="rstListImg">
+						<img src="img/icon1.png" alt="" />
+					</div>
+				</div>
+			</div>
+			<div class="rsBottom">
+				<div class="rstList">
+					<div class="rstListImg">
+						<img src="img/icon7.png" alt="" />
+					</div>
+					<div class="rstListText rltshouji">
+						<img src="img/shouji.png"/>
+						<div class="sanjiao sjsj"></div>
+					</div>
+				</div>
+				<div class="rstList">
+					<div class="rstListImg">
+						<a href="#header"><img src="img/icon8.png" alt="" /></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--header-->
+		<div class="header" id="header">
+			<!--hTop-->
+			<div class="hTop">
+				<div class="topNav clear">
+					<ul class="info clear">
+						<li>Hi，欢迎来到乐我生活网！<a href="login.html">请先登录</a> / <a href="#">注册</a></li>
+						<li><a href="register.html" class="abtn">签到</a></li>
+					</ul>
+					<ul class="lovoNav clear">
+						<li class="lovoNavCLi">
+							<a href="#">我的LOVO</a>
+							<ul class="lovoNavCLiChild">
+								<li><a href="#">我的订单</a></li>
+								<li><a href="#">优惠券/红包</a></li>
+								<li><a href="#">我的乐币</a></li>
+								<li><a href="#">礼品领取</a></li>
+							</ul>
+						</li>
+						<li><a href="#">会员中心</a></li>
+						<li><a href="#">网站联盟</a></li>
+						<li><a href="#"><span class="sCarImg"></span>购物车 <span>0</span> 件</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<!--hMiddle-->
+			<div class="hMiddle clear">
+				<div class="logo">
+					<a href="index.html"><img src="./img/LOGOcunjie.gif" alt="" /></a>
+				</div>
+				<div class="search">
+					<span class="ico sousuo"></span>
+					<input type="text" class="sTxt"/>
+					<input type="button" class="sBtn" value="搜索"/>
+				</div>
+				<a href="#">注册</a>
+			</div>
+			
+			<!--nav-->
+			<div class="nav">
+				<div class="nAll clear">
+					<div class="nLeft">
+						<a class="lTitle" href="goodsList.html">所有商品</a>
+						<!--<ul class="xiala">
+							<li><a href="#">套件系列</a></li>
+							<li><a href="#">套件系列</a></li>
+							<li><a href="#">套件系列</a></li>
+							<li><a href="#">套件系列</a></li>
+							<li><a href="#">套件系列</a></li>
+							<li><a href="#">套件系列</a></li>
+						</ul>-->
+					</div>
+					<div class="nright clear">
+						<ul>
+							<li><a href="index.html">首页</a></li>
+							<li>
+								<a href="#">迪士尼馆</a>
+								<div class="nrightCLiChild">
+									<div class="nrightCLiChildLeft">
+										<a href="#"><img src="img/m3.jpg"/></a>
+									</div>
+									<div class="nrightCLiChildRight">
+										LOVO将迪士尼经典卡通元素与美国的个性精神完美融合，通过各种艺术的表现方式，将快乐、梦幻、时尚、个性的品牌调性进行了概括，提炼和升华，并以此来完美诠释年轻一代的独特个性。迪士尼的套件、芯类、床护垫等每款产品都在诉说一个快乐的故事……，并伴随着一代又一代的青少年健康成长。
+									</div>
+								</div>
+							</li>
+							<li>
+								<a href="#">时尚家居用品</a>
+								<div class="nrightCLiChild">
+									<div class="nrightCLiChildLeft">
+										<a href="#"><img src="img/m2.jpg"/></a>
+									</div>
+									<div class="nrightCLiChildRight">
+										LOVO时尚家居，妆点温馨! 在LOVO时尚家居馆，您拥有的不只是商品，更是家的温暖！这些时尚小物，让做家务的过程变得有趣而不再单调；让拥挤的环境变得更加整洁；让居家时光，阳光蔓延更加温暖！
+									</div>
+								</div>
+							</li>
+							<li>
+								<a href="#">尚玛可品牌馆</a>
+								<div class="nrightCLiChild">
+									<div class="nrightCLiChildLeft">
+										<a href="#"><img src="img/m1.jpg"/></a>
+									</div>
+									<div class="nrightCLiChildRight">
+										尚玛可SAINTMARC品牌成为追求时尚生活方式的象征。追求时尚、个性、简约、休闲的设计理念，将时尚的色彩和图案巧妙运用于纺织品，成为二十世纪最有代表性的时尚品牌之一。
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		<!--main-->
+		<div class="main">
+			<div class="goodsCont">
+				<div class="goodsDetailNav">
+					<a href="#">LOVO家纺</a>>
+					<a href="#">所有</a>>
+					<a href="#">套件系列</a>>
+					<a href="#">美式时尚系列</a>>
+					<span>LOVO VTT6792 蜜雪 床品四件套</span>
+				</div>
+				<div class="goodsMoreDetail clear">
+					<div class="goodsMoreDetailLeft clear">
+						<div class="goodsImgList">
+							<div class="Slide back"></div>
+							<div class="scrollImg">
+								<ul>
+									<li><a href="#"><img src="img/tj1.jpg" alt="" /></a></li>
+									<li><a href="#"><img src="img/tj1.jpg" alt="" /></a></li>
+									<li><a href="#"><img src="img/tj1.jpg" alt="" /></a></li>
+									<li><a href="#"><img src="img/tj1.jpg" alt="" /></a></li>
+									<li><a href="#"><img src="img/tj1.jpg" alt="" /></a></li>
+									<li><a href="#"><img src="img/tj1.jpg" alt="" /></a></li>
+									<li><a href="#"><img src="img/tj1.jpg" alt="" /></a></li>
+								</ul>
+							</div>
+							<div class="Slide forward"></div>
+						</div>
+						<div class="goodsImgBox" id="bigBox">
+							<img src="img/tj1.jpg" alt="" />
+							<div class="goodsMirrorBox" id="mirrorBox"></div>
+							<div class="goodsShowBox" id="showBox"></div>
+						</div>
+					</div>
+					<div class="goodsMoreDetailRight">
+						<h3>LOVO VTT6792 蜜雪 床品四件套<span class="newGoodsImg"></span></h3>
+						<p>商品编号：6901486719940</p>
+						<p class="purplish">综合评分：<a class="star" title="4分"></a>&nbsp;&nbsp;&nbsp;&nbsp;最近成交<span>39</span>笔</p>
+						<p><span class="pcolor">官网价：￥<b>599</b></span>&nbsp;&nbsp;&nbsp;&nbsp;吊牌价：￥<span>1498</span>笔</p>
+						<br/>
+						<br/>
+						<p>现在下单，预计可得乐币：599<span class="purplish">（100乐币=5元）</span></p>
+						<br/>
+						<p><b class="gray">颜色：</b>无色</p>
+						<p class="activeImg">
+							<a href="#">
+								<img src="img/tj1.jpg" alt="无色"/>
+							</a>
+						</p>
+						<div class="chooseSize">
+							<p class="gray">尺寸： <span>200*230</span></p>
+							<p>
+								<a class="size" href="#">200*230/套</a>
+								<a class="size" href="#">200*240/套</a>
+							</p>
+						</div>
+						<div class="numoper">
+							<b class="gray">数量：</b>
+							<a class="numSpan" href="#">
+								<img src="img/Car1.gif" alt="" />
+							</a>
+							<input class="nums" type="text" value="1"/>
+							<a class="numSpan" href="#">
+								<img src="img/Car2.gif" alt="" />
+							</a>
+							<a class="operate buyBtn" href="#">立即购买</a>
+							<a class="operate collectBtn" href="#">加入收藏</a>
+						</div>
+						<p>提示：支持7天无理由退换货</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--footer-->
+		<div class="footer">
+			<div class="fTop clear">
+				<div class="ftt clear">
+					<div class="fttl">
+						<img src="img/bottom_logo.png"/>
+					</div>
+					<div class="fttr clear">
+						<div class="fttrChild">
+							<span></span>
+							<span>69</span>
+							<span>元即可<br/>免费配送</span>
+						</div>
+						<div class="fttrChild">
+							<span class="sTwo"></span>
+							<span>1200</span>
+							<span>个城市<br/>送货上门</span>
+						</div>
+						<div class="fttrChild">
+							<span class="sThree"></span>
+							<span>7</span>
+							<span>天无理由<br/>退换货保障</span>
+						</div>
+						<div class="fttrChild">
+							<span class="sFour"></span>
+							<span></span>
+							<span>客服热线<br/>021-60554933</span>
+						</div>
+					</div>
+				</div>
+				<div class="ftb clear">
+					<ul class="ftbList">
+						<li>新手指南</li>
+						<li><a href="">注册新用户</a></li>
+						<li><a href="">会员规则</a></li>
+						<li><a href="">乐币规则</a></li>
+						<li><a href="">礼品卡使用流程</a></li>
+					</ul>
+					<ul class="ftbList">
+						<li>如何付款/退款</li>
+						<li><a href="">网站订购流程</a></li>
+						<li><a href="">支付方式</a></li>
+						<li><a href="">如何办理退款</a></li>
+						<li><a href="">发票制度说明</a></li>
+					</ul>
+					<ul class="ftbList">
+						<li>配送方式</li>
+						<li><a href="">货到付款城市及配送时间</a></li>
+						<li><a href="">款到快递城市及配送时间</a></li>
+						<li><a href="">配送费收取标准及签收事项</a></li>
+					</ul>
+					<ul class="ftbList">
+						<li>售后服务</li>
+						<li><a href="">退换货政策</a></li>
+						<li><a href="">如何办理退换货</a></li>
+						<li><a href="">常见热点问题</a></li>
+						<li><a href="">投诉与建议</a></li>
+					</ul>
+					<ul class="ftbList">
+						<li>关于LOVO</li>
+						<li><a href="">联系我们</a></li>
+						<li><a href="">友情链接</a></li>
+						<li><a href="">罗莱家纺股份&招商中心</a></li>
+						<li><a href="">LOVO家居官方微博</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="fMiddle clear">
+				<div class="fmCld">
+					<div class="cldLeft">
+						<a href="#">关于LOVO</a>
+						<a href="#">隐私条款</a>
+						<a href="#">网站联盟</a>
+					</div>
+					<div class="cldRight">
+						Copyright&copy;2009-2016 lovo.cn All Rights Reserved 沪ICP备05017226号-17 版权所有&copy;上海罗莱家用纺织品有限公司
+					</div>
+				</div>
+			</div>
+			<div class="fBottom clear">
+				<div class="fbLeft">
+					<a href="#"></a>
+					<a href="#">
+						<img src="img/gaba.png"/>沪公网安备<br/>31011202001053号
+					</a>
+				</div>
+				<div class="fbRight">                       
+					<a href="#">重庆婚庆公司</a>
+					<a href="#">百姓网</a>
+					<a href="#">爱上海论坛 </a>
+					<a href="#">唐朝网</a>
+					<a href="#">黄山大众网</a>
+					<a href="#">美乐乐上海站</a>
+					<a href="#">沈阳生活网</a>
+					<a href="#">家纺品牌 </a>
+					<a href="#">婚宴酒店</a>
+					<a href="#">别墅网 </a>
+					<a href="#">客家网 </a>
+					<a href="#">板式家具</a>
+					<a href="#">品牌加盟 </a>
+					<a href="#">安家啦家居 </a>
+					<a href="#">结婚网 </a>
+					<a href="#">北京团购</a>
+					<a href="#">厦门装修公司</a>
+					<a href="#">女性时尚 </a>
+					<a href="#">家具卖场 </a>
+					<a href="#">南宁装修家居</a>
+					<a href="#">中国墙纸网 </a>
+					<a href="#">南京影楼</a>
+					<a href="#">PPS影音</a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	function $(str){
+		if(str.charAt(0)=="#"){
+			return document.getElementById(str.substring(1));
+		}else if(str.charAt(0)=="."){
+			return document.getElementsByClassName(str.substring(1));
+		}else{
+			return document.getElementsByTagName(str);
+		}
+	}
+	
+	var n=2;
+	function initUI(){
+		$("#showBox").style.width = parseInt($("#mirrorBox").offsetWidth)*n+"px";
+		$("#showBox").style.height = parseInt($("#mirrorBox").offsetHeight*n)+"px";
+		$("#showBox").style.backgroundSize = $("#bigBox").offsetWidth*n +"px "+$("#bigBox").offsetHeight*n+"px";
+	}
+	window.onload = function(){
+		initUI();
+		$("#bigBox").onmousemove = function(event){
+			var evt = event || window.event;
+//			1.数据
+			let mirrorWidth = $("#mirrorBox").offsetWidth;
+			let mirrorHeight = $("#mirrorBox").offsetHeight;
+			let left1 = evt.pageX-this.offsetLeft-mirrorWidth/2;
+			let top1 = evt.pageY-this.offsetTop-mirrorHeight/2;
+//			2.边界
+			if(left1<0){
+				left1=0;
+			}
+			if(left1>this.offsetWidth-mirrorWidth){
+				left1 = this.offsetWidth-mirrorWidth;
+			}
+			if(top1<0){
+				top1=0;
+			}
+			if(top1>this.offsetHeight-mirrorHeight){
+				top1=this.offsetheight-mirrorHeight;
+			}
+//			3.改变外观
+			$("#mirrorBox").style.left = left1+"px";
+			$("#mirrorBox").style.top = top1+"px";
+			$("#showBox").style.backgroundPosition = (-n*left1)+"px "+(-n*top1)+"px";
+		}
+	}
+</script>
+
